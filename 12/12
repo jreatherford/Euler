@@ -1,0 +1,19 @@
+#this sets up the algorithm for finding triangle numbers
+
+tri_numbers = [0];
+current_number = 1;
+
+#this will find triangle numbers and add them to the list as long as the condition is true.  
+#I will have to change this condition after I write the find factors function
+
+found = 0;
+while (found < 10):
+	tri_numbers.append( tri_numbers[current_number - 1] + current_number)
+
+	current_number = current_number + 1;
+	found = found + 1;
+
+
+print tri_numbers;
+
+	

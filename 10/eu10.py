@@ -8,6 +8,7 @@ possible_primes = range(0,limit);
 primes_total = 0;
 confirmed_primes = [];
 
+
 for current_number in range(2,limit):
 	if possible_primes[current_number] != False:
 		confirmed_primes.append(possible_primes[current_number]);
