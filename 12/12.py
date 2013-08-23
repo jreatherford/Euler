@@ -18,30 +18,34 @@ def primesUnderX(x):
 			while (increments < x):
 				possible_primes[increments] = False;
 				increments = increments + current_number;
+				
 	return confirmed_primes
 ###################################################################
 def findFactors(number, primes):
+	original_number = number;
+	times_repeated = 0;
 	total_factors = 1;
 	current_prime = 1;
-	while ((number > 1) and (current_prime < len(primes))):
-		if (number%primes[current_prime] == 0):
-			number = number/primes[current_prime]
-			total_factors = total_factors + 1;
-		else:
-			current_prime = current_prime + 1;
+
+	while  (number > 1):
+
+		while (number % primes[current_prime] == 0):
+			times_repeated += 1;
+			number = number/primes[current_prime];
+
+		total_factors *= (times_repeated + 1);
+		times_repeated = 0;
+
+		current_prime += 1;
+
 	return total_factors;
-
-
 ###################################################################
 tri_numbers = [0];
 current_number = 1;
 
-print "start-";
+primes = primesUnderX(100000);
 
-while (findFactors(tri_numbers[current_number-1], primes) < 499):
+
+while (findFactors(tri_numbers[current_number-1], primes) < 501):
 	tri_numbers.append( tri_numbers[current_number - 1] + current_number);
 	current_number = current_number + 1;
-
-print tri_numbers[current_number-1];
-
-print "done";
