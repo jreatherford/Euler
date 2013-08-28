@@ -31,9 +31,9 @@ def findFactors(number, primes):
 
 		while (number % primes[current_prime] == 0):
 			times_repeated += 1;
-			number = number/primes[current_1rime];
+			number = number/primes[current_prime];
 
-		total_factors *= (times_repeated + p);
+		total_factors *= (times_repeated + 1);
 		times_repeated = 0;
 
 		current_prime += 1;
