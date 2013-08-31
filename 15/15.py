@@ -1,5 +1,8 @@
 import math;
 
+#Bascially, I am using the function for "n choose k" which is n!/k!(n-k)! However, since it is a square and n = 2k,
+#it can be simplified as n!/(k!)^2.  For more info on this formula, see the following http://en.wikipedia.org/wiki/Combination
+
 square_size = 20;
 
 k_factorial = 1;
