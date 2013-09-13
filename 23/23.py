@@ -1,5 +1,4 @@
-#it took my PC 11.6 seconds to run this...
-#...I am ashamed.  I can do better than this.
+#trimmed down from 11.6s to 8.3
 
 size = 28123;
 factorSum = [0] * size;
@@ -18,15 +17,18 @@ for n in range (1, size):
 	if (factorSum[n] > n):
 		abundantNums.append(n);
 	
-#figure out which numbers are the sum of two adundants
-#this is where 99% of my processing is...
-#...I really should optimize it because 11.6 is just shamefull
-for x in abundantNums:
-	for y in abundantNums:
-		if ((x+y) >= size):
+#find all the sum of abundant numbers:
+#   this is where 98% of the processing goes
+#   I modified the loop enough to trim it down to 8.3s
+stop_point = len(abundantNums);
+for x in range(0, len(abundantNums)):
+	for y in range(x, stop_point):
+		sum = abundantNums[x]+abundantNums[y];
+		if (sum >= size):
+			stop_point = y;
 			break;
 		else:
-			abundantMap[x+y] = True;	
+			abundantMap[sum] = True;	
 
 #pick out the ones to add to the total
 for z in range (1, size):
