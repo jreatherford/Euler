@@ -1,0 +1,47 @@
+
+digits = 1e1;
+prev_count =0;
+for bits in range(1,150):
+
+	fib_gen = [1,1,2];
+	cursor = 0;
+	term = 3;
+	count = 0;
+	digits = pow(10, bits);
+
+	while (fib_gen[(cursor-1)%3] < digits):
+
+		if (fib_gen[cursor] > 1e100):
+			fib_gen[0] /= 1e80;
+			fib_gen[1] /= 1e80;
+			fib_gen[2] /= 1e80;
+			digits /= 1e80;
+
+		fib_gen[cursor] = fib_gen[(cursor + 1)%3] + fib_gen[(cursor + 2)%3];
+		term += 1;
+		cursor = (cursor + 1)%3;
+		count += 1;
+
+	#print fib_gen;
+	print term, "(", (count-prev_count),")";
+	prev_count = count;
+
+current_term = 7
+total_fives = 2;
+current_five = 1;
+digits = 2;
+
+while (digits < 63):
+	if current_five > total_fives:
+		current_term += 4;
+		if (total_fives < 4):
+			total_fives += 1;
+		else:
+			total_fives = 3;
+		current_five = 1;
+	else:
+		current_term += 5;
+		current_five += 1;
+	digits += 1;
+
+print current_term;
