@@ -59,9 +59,3 @@ while (digits < 1000):
 	digits += 1;
 
 print current_term;
-
-goal = 1000;
-change = (1/2e9)*(pow(goal,2))+0.0155*(goal)-0.0026;
-print change;
-
-print ((goal * (change))*4.0) + ((goal * (1- change))*5.0);
