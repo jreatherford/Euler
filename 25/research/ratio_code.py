@@ -1,7 +1,11 @@
+#goes up to 309 before it crashes
 
+fours = 0;
+fives = 0;
+sample = 309;
 digits = 1e1;
 prev_count =0;
-for bits in range(1,150):
+for bits in range(1,sample):
 
 	fib_gen = [1,1,2];
 	cursor = 0;
@@ -23,25 +27,14 @@ for bits in range(1,150):
 		count += 1;
 
 	#print fib_gen;
-	print term, "(", (count-prev_count),")";
+	if ((count-prev_count) == 4):
+		fours += 1;
+	else:
+		fives += 1;
+		#print term, "(", (count-prev_count),")";
 	prev_count = count;
 
-current_term = 7
-total_fives = 2;
-current_five = 1;
-digits = 2;
-
-while (digits < 63):
-	if current_five > total_fives:
-		current_term += 4;
-		if (total_fives < 4):
-			total_fives += 1;
-		else:
-			total_fives = 3;
-		current_five = 1;
-	else:
-		current_term += 5;
-		current_five += 1;
-	digits += 1;
-
-print current_term;
+	#print term;
+	#print "fours", fours, " fives:", fives;
+	print float((fours * 4) + (fives * 5))/float(sample);
+	#print "-------------------------------------------------"
