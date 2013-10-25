@@ -24,7 +24,7 @@ def isTruncatable (num, prime_table):
             return False
     return True
     
-size = 100000
+size = 1000000
 prime_table = [True] * (size + 1)
 prime_table[1] = False
 primes = findPrimes(size, prime_table)
