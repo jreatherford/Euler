@@ -14,9 +14,10 @@ def genCoprimePairs (max):
 	    i += 1   
     return coPrimes
 
-size = pow(10,4)
-coprimes = genCoprimePairs(size)
-print len(coprimes)
+size = pow(10,3)
+coPrimes = genCoprimePairs(size)
+
+
 print "done"
     
 
